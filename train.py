@@ -55,7 +55,6 @@ def main(args):
     if args.src_embed_path is not None:
         vector = utils.load_vector(args.src_embed_path)
         SRC.vocab.load_vectors(vector)
-        
 
     TGT.build_vocab(train_data, min_freq=args.tgt_min_freq)
     if args.tgt_embed_path is not None:
@@ -98,7 +97,7 @@ def main(args):
     criterion = nn.CrossEntropyLoss(ignore_index=TGT.vocab.stoi['<pad>'])
     optimizer_fn = utils.get_optimizer(args.optimizer)
     optimizer = optimizer_fn(model.parameters(), lr=args.lr)
-    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min')
+    scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=5)
     trainer = Trainer(model, criterion, optimizer, scheduler, args.clip, iteration=0)
 
     print('=============== MODEL ===============')
@@ -188,6 +187,7 @@ def main(args):
  
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('''
+        An Implimentation of Transformer.
         Attention is all you need. 
         Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
         Aidan N Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017. 

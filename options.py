@@ -2,11 +2,8 @@
 
 def train_opts(parser):
     group = parser.add_argument_group('Training')
-    group.add_argument('--train', default='./data/samples/sample_train.tsv',
-        help='filename of the train data')
-    group.add_argument('--valid', default='./data/samples/sample_valid.tsv',
-        help='filename of the validation data')
-    group.add_argument('--reset-best-loss', action='store_true')
+    group.add_argument('--train', help='filename of the train data')
+    group.add_argument('--valid', help='filename of the validation data')
     group.add_argument('--src-minlen', type=int, default=0,
         help='minimum sentence length of source side for training')
     group.add_argument('--tgt-minlen', type=int, default=0,
@@ -39,12 +36,6 @@ def train_opts(parser):
     
 def model_opts(parser):
     group = parser.add_argument_group('Model\'s hyper-parameters')
-    # group.add_argument('--pre-trained-transformer', default=None,
-    #     help='path to pre-trained transformer')
-    # group.add_argument('--pre-trained-encoder', default=None,
-    #     help='path to pre-trained encoder')
-    # group.add_argument('--pre-trained-decoder', default=None,
-    #     help='path to pre-trained decoder')
     group.add_argument('--encoder-embed-dim', type=int, default=512,
         help='dimension of word embeddings of encoder')
     group.add_argument('--decoder-embed-dim', type=int, default=512,
@@ -77,17 +68,13 @@ def model_opts(parser):
         help='dropout after activation fucntion in self attention')
     group.add_argument('--attention-dropout', type=float, default=0.1,
         help='dropout in self attention')
-    # group.add_argument('--share-embed', action='store_true',
-    #     help='tie the word embedding and softmax weight')
     return group
 
 
 def translate_opts(parser):
     group = parser.add_argument_group('Translation')
-    group.add_argument('--model', default='./checkpoints/checkpoint_best.pt',
-        help='model file for translation')
-    group.add_argument('--input', default='./data/samples/sample_test.txt',
-        help='input file')
+    group.add_argument('--model', help='model file for translation')
+    group.add_argument('--input', help='input file')
     group.add_argument('--batch-size', type=int, default=32,
         help='batch size')
     group.add_argument('--maxlen', type=int, default=100,

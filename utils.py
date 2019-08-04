@@ -64,16 +64,6 @@ def id2w(pred, field):
     return ' '.join(sentence)
 
 
-# def update_params(old_params, new_params, except_list=[]):
-#     params = OrderedDict()
-#     for key in old_params.keys():
-#         if key in new_params.keys() and key not in except_list:
-#             params[key] = new_params[key]
-#         else:
-#             params[key] = old_params[key]
-#     return params 
-
-
 def get_optimizer(method):
     if method == 'sgd':
         return optim.SGD
@@ -81,10 +71,3 @@ def get_optimizer(method):
         return optim.Adam
     elif method == 'adagrad':
         return optim.Adagrad
-
-
-def load_params(model_path):
-    load_vars = torch.load(model_path)
-    args = load_vars['args']
-    weights = load_vars['weights']
-    return args, weights
