@@ -1,5 +1,5 @@
 # Transformer: Attention is all you need
-An implementation of transfomer refer to [Attention is all you need (NIPS2017)](https://arxiv.org/abs/1706.03762).
+An implementation of [Transfomer](https://arxiv.org/abs/1706.03762).
 
 <p align=center>
 <img src=https://user-images.githubusercontent.com/53220859/65560102-40ef3980-df78-11e9-8b4f-7ea5c09a6061.png width=350pt>
