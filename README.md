@@ -1,9 +1,9 @@
 # Transformer: Attention is all you need
 An implementation of transfomer refer to [Attention is all you need (NIPS2017)](https://arxiv.org/abs/1706.03762).
 
-<br>
-
-
+<p align=center>
+<img src=https://user-images.githubusercontent.com/53220859/65560102-40ef3980-df78-11e9-8b4f-7ea5c09a6061.png width=350pt>
+</p>
 
 ## Settings
 This code are depend on the following.
@@ -17,7 +17,6 @@ git clone https://github.com/t080/pytorch-transformer.git
 cd ./pytorch-transformer
 pip install -r requirements.txt
 ```
-<br>
 
 ## Usages
 ### Training
@@ -42,5 +41,4 @@ python translate.py \
 ```
 
 ## References
-
 - [Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin. Attention is all you need. In Advances in neural information processing systems 2017, pp. 5998-6008.](https://arxiv.org/abs/1706.03762)
